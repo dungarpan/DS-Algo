@@ -5,7 +5,7 @@
 using namespace std;
 
 bool check_prime_naive(int a){
-    //idea is that square root always come in a pair. the smaller number of this pair has to be withinroot of n.
+    //idea is that square root always come in a pair. one divisor is in the pair is always smaller than root n. the smaller number of this pair has to be withinroot of n.
     for(int i=2;i<=sqrt(a);i++){
         if(a%i==0){
             return false;
