@@ -13,7 +13,7 @@ void print_divisors(int a){
             cout<<i<<" ";
         }
     }
-    for(i = int(sqrt(a))-1;i>=1;i--){
+    for(i = int(sqrt(a));i>=1;i--){
         //cout<<"i:"<<i<<endl;
         if(a%i==0){
             cout<<a/i<<" ";
