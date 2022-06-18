@@ -32,8 +32,14 @@ void insert_middle(struct Node* head, int d, int p){
     head->next = new_node;
 }
 
-void insert_end(struct Node* head){
-
+void insert_end(struct Node* head, int d){
+    struct Node* last = new Node;
+    while(head->next){
+        head = head->next;
+    }
+    head->next = last;
+    last->data = d;
+    last->next = NULL;
 }
 
 int main(){
@@ -65,7 +71,7 @@ int main(){
         insert_middle(head, data, pos);
     }
     else{
-        insert_end(head);
+        insert_end(head, data);
     }
     traverse(head);
     return 0;
