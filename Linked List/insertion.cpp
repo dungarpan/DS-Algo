@@ -21,8 +21,15 @@ struct Node* insert_beginning(struct Node* head, int d){
     return head;
 };
 
-void insert_middle(struct Node* head){
-
+void insert_middle(struct Node* head, int d, int p){
+    while(p-2 && (head->next)!=NULL){
+        head = head->next;
+        p--;
+    }
+    struct Node* new_node = new Node;
+    new_node->data = d;
+    new_node->next = head->next;
+    head->next = new_node;
 }
 
 void insert_end(struct Node* head){
@@ -52,7 +59,10 @@ int main(){
         head = insert_beginning(head, data);
     }
     else if(choice==2){
-        insert_middle(head);
+        int pos;
+        cout<<"Enter position to enter the new node (greater than 1)"<<endl;
+        cin>>pos;
+        insert_middle(head, data, pos);
     }
     else{
         insert_end(head);
