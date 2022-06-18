@@ -13,9 +13,13 @@ void traverse(struct Node* head){
     }
 }
 
-void insert_beginning(struct Node* head){
-
-}
+struct Node* insert_beginning(struct Node* head, int d){
+    struct Node* new_head = new Node;
+    new_head->data = d;
+    new_head->next = head;
+    head = new_head;
+    return head;
+};
 
 void insert_middle(struct Node* head){
 
@@ -45,13 +49,14 @@ int main(){
     cout<<"Enter data for the new node"<<endl;
     cin>>data;
     if(choice==1){
-        
+        head = insert_beginning(head, data);
     }
     else if(choice==2){
-
+        insert_middle(head);
     }
     else{
-        
+        insert_end(head);
     }
+    traverse(head);
     return 0;
 }
