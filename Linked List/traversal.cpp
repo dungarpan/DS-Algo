@@ -13,7 +13,33 @@ void traverse(struct Node* head){
     }
 }
 
+struct Node* enter_ll(){
+    struct Node* temp = NULL;
+    struct Node* head = NULL;
+    cout<<"Enter data of linked list.Enter -1 to stop"<<endl;
+    int input,c=0;
+    while(input!=-1){
+        cin>>input;
+        if(input==-1){
+            break;
+        }
+        struct Node* new_node = new Node;
+        new_node->next=NULL;
+        new_node->data=input;
+        if(c==0){
+            head = new_node;
+        }
+        else{
+            temp->next = new_node;
+        }
+        temp=new_node;
+        c++;
+    }
+    return head;
+}
+
 int main(){
+
     struct Node* head = NULL;
     struct Node* second = NULL;
     struct Node* third = NULL;
@@ -26,6 +52,8 @@ int main(){
     head->next = second;
     second->next = third;
     third->next = NULL;
-    traverse(head);
+    struct Node* head2 = new Node;
+    head2 = enter_ll();
+    traverse(head2);
     return 0;
 }
